@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "captain_planet"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{DSL for dealing with environments in Ruby projects}
+    gem.description = %Q{Captain Planet is a Ruby DSL that makes dealing with Environments much easier.}
     gem.email = "brad@bradgessler.com"
     gem.homepage = "http://github.com/bradgessler/captain_planet"
     gem.authors = ["Brad Gessler"]
