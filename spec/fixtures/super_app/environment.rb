@@ -1,10 +1,5 @@
 class SuperFun < CaptainPlanet::Environment
-  attribute :language do
-    []
-  end
-  attribute :name do
-    "Country"
-  end
+  attr_accessor :name, :lang
 end
 
-Environment = CaptainPlanet.resolve # Assum that this stuff works from the root that its being called
+SuperFun::Environments = CaptainPlanet::Builder.process(:SuperFun, File.join(File.dirname(__FILE__), 'environments/*.rb' )) # Assum that this stuff works from the root that its being called

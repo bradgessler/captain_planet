@@ -4,44 +4,27 @@ module CaptainPlanet
     
     def self.process(klass,pattern)
       builder = Builder.new(klass)
-      
       Dir[pattern].each do |path|
         name = File.basename(path, '.rb')
         config = File.read(path)
-        # builder.environments[name] = builder.eval(config)
+        builder[name] = config
       end
+      builder
     end
     
-    def initialize(klass=Environment,config=nil,&block)
+    def initialize(klass=Environment)
       @klass = klass
       @environments = {}
-      
-      # Read from an incoming string, perhaps read from a config file, or a block
-      if config
-        instance_eval(config)
-      elsif block_given?
-        instance_eval(&block)
-      end
     end
     
     # Add a new environment to the thing or find an existing one.
-    def environment(name, config=nil, &block)
-      if env = @environments[name.to_s]
-        yield env if block_given?
-      else
-        env = klass.new
-        if config
-          
-        else
-          yield env if block_given?
-        end
-        @environments[name.to_s] = env
-      end
+    def environment name, config=nil, &block
+      environments[name] = klass.configure(config, &block)
     end
-    alias_method :env, :environment
+    alias_method :[]=, :environment
     
-    def [] key
-      environments[key]
+    def [] name
+      environments[name]
     end
     
     # Converts the incoming klass value into something we can instanciate for realz
@@ -49,7 +32,7 @@ module CaptainPlanet
       if @klass.is_a?(Class)
         @klass
       else
-        unless /\A(?:::)?([A-Z]\w*(?:::[A-Z]\w*)*)\z/ =~ @klass
+        unless /\A(?:::)?([A-Z]\w*(?:::[A-Z]\w*)*)\z/ =~ @klass.to_s
           raise NameError, "#{@klass.inspect} is not a valid constant name!"
         end
         

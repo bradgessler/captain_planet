@@ -1,3 +1,3 @@
 class WebEnv < CaptainPlanet::Environment
-  attr_configurable :root, :host, :port
+  attr_accessor :root, :host, :port
 end

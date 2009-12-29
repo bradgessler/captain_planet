@@ -1,1 +1,1 @@
-lang "German"
+env.lang = "German"

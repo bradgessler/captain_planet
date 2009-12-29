@@ -5,14 +5,14 @@ require ~'../fixtures/web_env'
 describe Environment do
   it "should eval string" do
     WebEnv.configure(%{
-      host 'fun.com'
-      root '/www/fun'
+      env.host = 'fun.com'
+      env.root = '/www/fun'
     }).host.should eql('fun.com')
   end
   
   it "should eval block" do
-    WebEnv.configure {
-      host 'fun'
+    WebEnv.configure { |env|
+      env.host = 'fun'
     }.host.should eql('fun')
   end
 end
