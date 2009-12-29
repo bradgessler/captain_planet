@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "README.markdown",
      "Rakefile",
      "VERSION",
+     "captain_planet.gemspec",
      "lib/captain_planet.rb",
      "lib/captain_planet/builder.rb",
      "lib/captain_planet/environment.rb",
