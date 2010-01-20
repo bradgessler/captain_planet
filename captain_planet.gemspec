@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{captain_planet}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brad Gessler"]
-  s.date = %q{2009-12-29}
+  s.date = %q{2010-01-20}
   s.description = %q{Captain Planet is a Ruby DSL that makes dealing with Environments much easier.}
   s.email = %q{brad@bradgessler.com}
   s.extra_rdoc_files = [
