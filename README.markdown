@@ -25,7 +25,7 @@ YML sucks. When configs are implemented in YML, a lot of code is written that in
       end
     })[ENV['ENV'] || 'development']
 
-## Even better!
+## It Gets Even better!
 
 There are some smart defaults for setting up environments in a project. For example, a folder structure typically mimics that like what's found in rails:
 
@@ -36,7 +36,7 @@ There are some smart defaults for setting up environments in a project. For exam
           |- development.rb
           |- test.rb
 
-Why not mimic that? That's exactly where I thought too. Just define your configuration class.
+Why not mimic that? That's exactly where I thought too. Just define your configuration class and its defaults in your environments.rb file.
 
     class QTZEnv < CaptainPlanet::Environment
       attr_accessor :webdav_mount_root, :webdav_url, :polling_interval, :default_permalink
@@ -48,7 +48,7 @@ Why not mimic that? That's exactly where I thought too. Just define your configu
       end
     end
 
-Then initialize the Environment with CaptainPlanet.
+Then initialize the Environment with CaptainPlanet and point it at the ./environments folder:
 
     Environment = CaptainPlanet::Builder.process(QTZEnv, File.join(File.dirname(__FILE__), './environments/*.rb'))[ENV['ENV'] || 'development']
 
@@ -56,4 +56,6 @@ And finally use anywhere in your application!
 
     Environment.webdav_mount_root # => '/default/'
 
-The best part? You get full control over how the environment is bootstrapped. Mmm mmm good.
+The best part? You get full control over how the environment is bootstrapped, from the defaults to how the environment is specified, and you can configure your application dynamically through the power of the Ruby language.
+
+Repeat after me, "YAML sucks".
