@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-require ~'../fixtures/super_app/environment'
+require 'fixtures/super_app/environment'
 
 describe Builder, "processor" do
   it "should detect environments" do

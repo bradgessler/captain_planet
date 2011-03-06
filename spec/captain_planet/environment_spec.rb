@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-require ~'../fixtures/web_env'
+require 'fixtures/web_env'
 
 describe Environment do
   it "should eval string" do
