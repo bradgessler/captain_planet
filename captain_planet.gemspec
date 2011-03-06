@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{captain_planet}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brad Gessler"]
-  s.date = %q{2010-01-20}
+  s.date = %q{2011-03-05}
   s.description = %q{Captain Planet is a Ruby DSL that makes dealing with Environments much easier.}
   s.email = %q{brad@bradgessler.com}
   s.extra_rdoc_files = [
@@ -27,8 +27,10 @@ Gem::Specification.new do |s|
      "captain_planet.gemspec",
      "lib/captain_planet.rb",
      "lib/captain_planet/builder.rb",
+     "lib/captain_planet/configurable.rb",
      "lib/captain_planet/environment.rb",
      "spec/captain_planet/builder_spec.rb",
+     "spec/captain_planet/configurable_spec.rb",
      "spec/captain_planet/environment_spec.rb",
      "spec/captain_planet_spec.rb",
      "spec/fixtures/super_app/environment.rb",
@@ -51,10 +53,11 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/bradgessler/captain_planet}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.4.2}
   s.summary = %q{DSL for dealing with environments in Ruby projects}
   s.test_files = [
     "spec/captain_planet/builder_spec.rb",
+     "spec/captain_planet/configurable_spec.rb",
      "spec/captain_planet/environment_spec.rb",
      "spec/captain_planet_spec.rb",
      "spec/fixtures/super_app/environment.rb",
@@ -66,10 +69,9 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
     else
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
